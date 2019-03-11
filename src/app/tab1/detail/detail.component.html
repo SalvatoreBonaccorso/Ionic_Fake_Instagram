@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf='post'>
+      {{ post.author}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="welcome-card" *ngIf='post'>
+    <ion-img [src]="post.image || 'https://www.freeiconspng.com/uploads/error-icon-28.png'"></ion-img>
+    <ion-card-content>
+      <p>{{ post.message }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-item><b>COMMENTS:</b></ion-item>
+  <ion-list lines="none" *ngIf='post'>
+    <ion-item *ngFor='let chat of post.comments.reverse()'>
+      <ion-label><b>{{chat.author}}</b>: {{chat.message}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input placeholder="Insert your comment here" [(ngModel)]='comment.message'></ion-input>
+    <ion-button (click)='send()'>Send</ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Create a new post
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-input placeholder="Insert your post image here" [(ngModel)]='post.image'></ion-input>
+    <ion-input placeholder="Insert your post message here" [(ngModel)]='post.message'></ion-input>
+    <ion-button (click)='set()'>Set</ion-button>
+</ion-content>
